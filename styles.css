@@ -1,0 +1,272 @@
+/* ===== CSS VARIABLES ===== */
+:root {
+  --background-primary: #1a1a1a;
+  --background-section: #0d0d0d;
+  --text-primary: #e8e4e0;
+  --text-secondary: #a89f97;
+  --accent-color: #8b7355;
+  --accent-hover: #a6896b;
+  --divider-color: #3d3d3d;
+}
+
+/* ===== GLOBAL STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 19px;
+  line-height: 1.85;
+  overflow-x: hidden;
+}
+
+/* ===== WAVY UNDERLINES ===== */
+.title-underline,
+.title-underline-large {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath d='M0 2 Q5 0 10 2 T20 2' stroke='%238b7355' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 20px 4px;
+  height: 4px;
+}
+
+.title-underline {
+  width: 120px;
+  margin-bottom: 40px;
+}
+
+.title-underline-large {
+  width: 200px;
+  margin: 0 auto 24px auto;
+}
+
+/* ===== TITLE SECTION ===== */
+.title-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-primary);
+  position: relative;
+}
+
+.title-content {
+  text-align: center;
+}
+
+.main-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 24px;
+  color: var(--text-secondary);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: bounce 2s infinite;
+}
+
+.scroll-arrow {
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid var(--text-secondary);
+  border-bottom: 2px solid var(--text-secondary);
+  transform: rotate(45deg);
+  margin-top: 8px;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+/* ===== ESSAY SECTIONS ===== */
+.essay-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.essay-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.essay-section:nth-child(even) {
+  background-color: var(--background-section);
+}
+
+.section-content {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+
+.section-text p {
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.section-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== HISTORICAL SECTIONS ===== */
+.essay-section.historical {
+  background-color: #141210;
+  border-left: 4px solid var(--accent-color);
+}
+
+/* ===== SPECIAL TEXT ELEMENTS ===== */
+.emphasis-word {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 24px;
+  color: var(--text-secondary);
+  display: block;
+  margin-top: 32px;
+  text-align: center;
+}
+
+.number-tag {
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.death-notice {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--text-secondary);
+  display: block;
+  margin: 16px 0;
+  padding-left: 20px;
+  border-left: 2px solid var(--accent-color);
+}
+
+.word-sequence {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--text-secondary);
+  text-align: center;
+  display: block;
+  margin: 24px 0;
+  letter-spacing: 0.05em;
+}
+
+/* ===== WORKS CITED SECTION ===== */
+.works-cited-section {
+  min-height: auto;
+  padding: 80px 20px;
+  background-color: var(--background-section);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.works-cited-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.works-cited-section .section-title {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.citation {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  padding-left: 40px;
+  text-indent: -40px;
+  color: var(--text-secondary);
+}
+
+.citation em {
+  font-style: italic;
+}
+
+/* ===== DEDICATION ===== */
+.dedication {
+  text-align: center;
+  padding: 60px 20px 100px 20px;
+  background-color: var(--background-primary);
+}
+
+.dedication p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .main-title { font-size: 42px; }
+  .subtitle { font-size: 18px; }
+  .section-title { font-size: 32px; }
+  .section-content { padding: 0 20px; }
+  body { font-size: 17px; }
+  .essay-section { padding: 60px 16px; }
+  .title-underline-large { width: 150px; }
+  .emphasis-word { font-size: 20px; }
+  .death-notice { font-size: 16px; }
+  .word-sequence { font-size: 18px; }
+}
+
+@media (max-width: 480px) {
+  .main-title { font-size: 32px; }
+  .section-title { font-size: 26px; }
+  body { font-size: 16px; line-height: 1.75; }
+  .title-underline { width: 100px; margin-bottom: 32px; }
+  .title-underline-large { width: 120px; }
+  .citation { font-size: 14px; padding-left: 24px; text-indent: -24px; }
+  .dedication p { font-size: 18px; }
+}
